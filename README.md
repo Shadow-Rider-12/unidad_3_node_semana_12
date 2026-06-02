@@ -4,10 +4,14 @@
     -Crear un proyecto con nodeJS, con el siguiente
     comando en la terminal:
     npm init -y
-# 2.- Instalar Express
+# 1.1.- Cuando descargamos el proyecto de otro lado:
+    -Vamos a usar el siguiente comando para instalar las dependencias de NodeModules
+    npm y
+# 2.- Instalar Express(Paqueta para poder trabajar JavaScript como servidor)
     -Realizar la instalacion de un paquete
     de desarrollo:
     npm install express
+
 # 3.- Crear estructura de carpetas para el proyecto:
     -Primero definimos la carpeta madre (src)
     -Crear el Main de la aplicación, que es el app.js
@@ -19,14 +23,18 @@
         ---users.js 
     ----middlewares/
         ---logger.js
+
 # 4.- Creacion del logger.js
     Creamos el puente de la aplicación.
     logger.js
+
 # 5.- Creacion de una ruta
     -Crearemos un usuario con datos parseados (meterlos a
     la mala) en la ruta. La ruta la usaremos para manejar las URL.
     users.js 
+
 # 6.- Creación del Main
     -Definimos el cerebro la aplicación.
     app.js
+
 # 7.- 

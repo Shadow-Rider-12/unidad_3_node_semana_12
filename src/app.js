@@ -1,6 +1,6 @@
-const express = requiere('express');
-const logger = requiere('./middleware/logger');
-const userRouter = requiere('./routes/user');
+const express = require('express');
+const logger = require('./middlewares/logger');
+const usersRouter = require('./routes/users');
 const app = express();
 
 // middleware globales
@@ -8,7 +8,9 @@ app.use(express.json()); //leer JSON del body
 app.use(logger);
 
 //rutas
-app.use('/users', userRouter);
-app.listen(3000,
-    () => console.log('Hola mundo')
+app.use('/usuario', usersRouter);
+app.listen(3000, () => 
+    {
+        console.log('Hola mundo')
+    }
 );
