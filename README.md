@@ -40,4 +40,15 @@
 # 7.-  Levantamos el servidor con el comando:
     Recordar que node es la palabra reservada, el 
     src es la ubicación de la carpeta y el app.js es el main
-# 8.-  
+# 8.- Verificamos las rutas cambiando el puerto
+    a de más agregamos una constante para reemplazar
+    el numero del puerto
+    const PORT = 3002;
+# 9.- Agregamos mas Usurios en las Rutas:
+   Para esto creamos un Array con dos usuarios nuervos
+   en src/routes/users.js
+# 10.- Instalacion de NodeMon:
+    Este Pakage hace que no tengamos que
+    bajar y levantar el servidor, se instala
+    con el siguente comando:
+    npm i -D nodemon

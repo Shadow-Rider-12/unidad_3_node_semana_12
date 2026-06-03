@@ -2,47 +2,56 @@
 const express = require('express');
 const router = express.Router();
 
-//GET users localhost: 3000/users
-router.get('/',
+//GET users  localhost:3000/users
+router.get('/' , 
     (req, res) => {
         res.json(
-            {users: ['Aaron', 'Alvares']}
+            {users: ['Daniel' , 'Scarlazzetta']}
         );
     }
 );
-//GET de user with id localhost:3000/users:id
-router.get('/:id',
+//GET users whith id locaholst:3000/users:id
+router.get('/:id', 
     (req, res) => {
-        res.json({ id: req.params.id});
+        res.json(
+            {id: req.params.id}
+        );
     }
-);
-module.exports = router;
-*/
-//Modificacion para mostrar más datos
+ );
+
+module.exports = router;*/
+
+
+
+//Modificacion para mostar más datos
 const express = require('express');
 const router = express.Router();
-//Base de datos temporal en memoria
+
+// Base de datos temporal en memoria
 let users = [
-    {id: 1, nombre: 'Aaron', edad: 20},
-    {id: 2, nombre: 'Franco', edad: 21},
-    {id: 3, nombre: 'Ezequiel', edad: 22},
+  { id: 1, nombre: 'Aaron Alvares', edad: 33 },
+  { id: 2, nombre: 'Franco Zuñiga', edad: 3 },
+  { id: 3, nombre: 'Salvador Perez', edad: 99 },
 ];
 
-//GET /users - obtener todos - GetAll
-router.get('/', (req, res) => {
+// GET /usuarios — obtener todos - GetAll
+router.get(
+  '/', (req, res) => {
     res.json(users);
+  }
+);
+
+
+
+//GET 
+router.get('/:id', (req, res) => {
+  const user = users.find(u => u.id === parseInt(req.params.id));
+
+  if (!user) {
+    return res.status(404).json({ error: 'Usuario no encontrado' });
+  }
+  res.json(user);
 });
 
-//GET /users/:id - obtener uno por id
-router.get('/:id', (req, res) => {
-    const users = users.find(
-        u => u.id === parseInt(req.params.id)
-    );
-    if(!users){
-        return res.status(404).json(
-            {error: 'Usuario no encontrado'}
-        )
-    }
-    res.json(users);
-});
+
 module.exports = router;
