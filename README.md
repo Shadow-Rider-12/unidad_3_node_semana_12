@@ -37,4 +37,7 @@
     -Definimos el cerebro la aplicación.
     app.js
 
-# 7.- 
+# 7.-  Levantamos el servidor con el comando:
+    Recordar que node es la palabra reservada, el 
+    src es la ubicación de la carpeta y el app.js es el main
+# 8.-  
