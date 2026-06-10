@@ -1,5 +1,4 @@
-/*
-const express = require('express');
+/*const express = require('express');
 const router = express.Router();
 
 //GET users  localhost:3000/users
@@ -21,17 +20,15 @@ router.get('/:id',
 
 module.exports = router;*/
 
-
-
 //Modificacion para mostar más datos
 const express = require('express');
 const router = express.Router();
 
 // Base de datos temporal en memoria
 let users = [
-  { id: 1, nombre: 'Aaron Alvares', edad: 33 },
-  { id: 2, nombre: 'Franco Zuñiga', edad: 3 },
-  { id: 3, nombre: 'Salvador Perez', edad: 99 },
+  { id: 1, nombre: 'Aaron Alvares', edad: 20 },
+  { id: 2, nombre: 'Franco Zuñiga', edad: 25 },
+  { id: 3, nombre: 'Salvador Perez', edad: 40 },
 ];
 
 // GET /usuarios — obtener todos - GetAll
@@ -41,8 +38,6 @@ router.get(
   }
 );
 
-
-
 //GET 
 router.get('/:id', (req, res) => {
   const user = users.find(u => u.id === parseInt(req.params.id));
@@ -51,6 +46,17 @@ router.get('/:id', (req, res) => {
     return res.status(404).json({ error: 'Usuario no encontrado' });
   }
   res.json(user);
+});
+
+
+// POST /users — crear nuevo usuario
+router.post('/', (req, res) => {
+  const { nombre, edad } = req.body;
+  const nuevoId = users.length > 0 ? users[users.length - 1].id + 1 : 1;
+  const nuevoUsuario = { id: nuevoId, nombre, edad };
+  //hacemos uso del empujar 
+  users.push(nuevoUsuario);
+  res.status(201).json(nuevoUsuario);
 });
 
 

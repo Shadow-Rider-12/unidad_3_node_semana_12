@@ -52,3 +52,6 @@
     bajar y levantar el servidor, se instala
     con el siguente comando:
     npm i -D nodemon
+# 11.- Cambiamos el metodo de levantar el servidor:
+    Ahora estamos ejecutando un Script, esto es gracias a 'nodemon'
+    npm run dev
