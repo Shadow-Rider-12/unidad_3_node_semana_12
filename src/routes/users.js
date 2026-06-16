@@ -50,7 +50,9 @@ router.get('/:id', (req, res) => {
 
 
 // POST /users — crear nuevo usuario
-router.post('/', (req, res) => {
+router.post(
+  '/', (req, res) => {
+  //usar dos atributos de la clase
   const { nombre, edad } = req.body;
   const nuevoId = users.length > 0 ? users[users.length - 1].id + 1 : 1;
   const nuevoUsuario = { id: nuevoId, nombre, edad };
@@ -59,5 +61,26 @@ router.post('/', (req, res) => {
   res.status(201).json(nuevoUsuario);
 });
 
-
+// PUT /users/:id — actualizar usuario
+router.put('/:id', (req, res) => {
+  const user = users.find(u => u.id === parseInt(req.params.id));
+  if (!user) {
+    return res.status(404).json({error: 'Usuario no encontrado'});
+  }
+  const {nombre, edad} = req.body;
+  //Actualizamos solo los campos que llegaron
+  if (nombre !== undefined) user.nombre = nombre;
+  if (edad !== undefined) user.edad = edad;
+  res.json(user);
+}
+);
+// DELETE /users/:id — eliminar usuario
+router.delete('/:id', (req, res) => {
+  const index = users.findIndex(u => u.id === parseInt(req.params.id));
+  if (index === -1) {
+    return res.status(404).json({ error: 'Usuario no encontrado' });
+  }
+  const eliminado = users.splice(index, 1)[0];
+  res.json({ mensaje: 'Usuario eliminado', usuario: eliminado });
+});
 module.exports = router;
